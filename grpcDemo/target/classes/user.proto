@@ -1,0 +1,114 @@
+syntax ="proto3";
+
+option java_package = "com.sohail.grpc";
+
+service user{
+rpc login(LoginRequest) returns(APIResponse);
+rpc logout(Empty) returns (APIResponse);
+
+rpc queryone(Details1) returns (Query1);
+rpc querytwo(Details2) returns (Query2);
+rpc querythree(Details3) returns (Query3);
+rpc queryfour(Details4) returns (Query4);
+rpc queryfive(Details5) returns (Query5);
+}
+
+
+message Details1{
+     string Year=1;
+    string State=2;
+    string Type=3;
+     string Length=4;
+     string Expense=5;
+
+}
+
+message Query1{
+
+    string Value=1;
+
+}
+
+message Details2{
+    
+    string Year=1;
+    string Type=2;
+    string Length=3;
+    
+
+}
+
+message Query2{
+    string state_1=1;
+    string state_2=2;
+    string state_3=3;
+    string state_4=4;
+    string state_5=5;
+}
+
+message Details3{
+    
+    string Year=1;
+    string Type=2;
+    string Length=3;
+    
+
+}
+
+message Query3{
+    string state_1=1;
+    string state_2=2;
+    string state_3=3;
+    string state_4=4;
+    string state_5=5;
+}
+
+message Details4{
+    string r1=1;
+    string r2=2;
+    string Type=3;
+    string Length=4;
+
+
+}
+
+message Query4{
+    string state_1=1;
+    string state_2=2;
+    string state_3=3;
+    string state_4=4;
+    string state_5=5;
+}
+
+message Details5{
+    
+    string Year=1;
+    string Type=2;
+    string Length=3;
+    
+
+}
+
+message Query5{
+    string region_1=1;
+    string region_2=2;
+    string region_3=3;
+    string region_4=4;
+    string region_5=5;
+
+
+}
+
+message LoginRequest{
+string username =1;
+string password =2;
+}
+
+message APIResponse{
+string responsemessage =1;
+int32 responseCode =2;
+}
+
+message Empty{
+
+}
