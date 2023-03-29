@@ -176,7 +176,7 @@ westStates.add("Wyoming");
  
     }
 
-    totall=totall/9;
+    totall=totall/10;
     
     String[] row2 = new String[] {"northeast",totall.toString()};
     listfinal2.add(row2);
@@ -221,7 +221,7 @@ westStates.add("Wyoming");
             totall2= Integer.parseInt(listfinala.get(g)[1])+totall2;
     
         }
-        totall2=totall2/8;
+        totall2=totall2/12;
         String[] row3 = new String[] {"southeast",totall2.toString()};
         listfinal2.add(row3);
 
@@ -261,7 +261,7 @@ westStates.add("Wyoming");
                 totall3= Integer.parseInt(listfinalb.get(g)[1])+totall3;
         
             }
-            totall3=totall3/12;
+            totall3=totall3/14;
             String[] row4 = new String[] {"midwest",totall3.toString()};
             listfinal2.add(row4);
 
@@ -341,22 +341,52 @@ westStates.add("Wyoming");
 
                     String[] row6 = new String[] {"west",totall5.toString()};
                     listfinal2.add(row6);
-
                     
-    
-    Document doc = new Document().append("year_low",Year).append("type",Type).append("length",Length).append("Northeast", listfinal2.get(0)[1]).append("Southeast", listfinal2.get(1)[1]).append("Midwest", listfinal2.get(2)[1]).append("Southwest", listfinal2.get(3)[1]).append("West", listfinal2.get(4)[1]);
-    
-    
-    collection2.insertOne(doc);
-    
+                    Integer flag=0;
+                    for(int u=0;u<listfinal2.size();u++) {
+                    	
+                    	flag=Integer.parseInt(listfinal2.get(u)[1])+flag;
+                    	
+                    	
+                    }
+                    
+                    if(flag==0) {
+                    	
+                    	Document doc = new Document().append("year_low",Year).append("type",Type).append("length",Length).append("Northeast", "Not Found").append("Southeast", "Not Found").append("Midwest", "Not Found").append("Southwest", "Not Found").append("West", "Not Found");
+                    	if(collection2.find(doc).limit(1).first()==null) {
+                    		
+                   		 collection2.insertOne(doc);
+                   		
+                   		
+                   		
+                   	}
+                        
+                        for(String[] array : listfinal2) {
+                        	array[1]="Not Found";
+                        }
+                        
 
 
+                        return listfinal2;
+                    	
+                    }
+                    else {
+                    
+                    	Document doc = new Document().append("year_low",Year).append("type",Type).append("length",Length).append("Northeast", listfinal2.get(0)[1]).append("Southeast", listfinal2.get(1)[1]).append("Midwest", listfinal2.get(2)[1]).append("Southwest", listfinal2.get(3)[1]).append("West", listfinal2.get(4)[1]);
+                    	if(collection2.find(doc).limit(1).first()==null) {
+                    		
+                   		 collection2.insertOne(doc);
+                   		
+                   		
+                   		
+                   	}
+                   
+                        
 
-    
 
-        
-    
-    return listfinal2;
+                        return listfinal2;
+
+                    }
             
         }
 

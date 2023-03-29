@@ -1,3 +1,4 @@
+
 package mongodb;
 
 
@@ -13,6 +14,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
 import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.FindOneAndUpdateOptions;
 import com.mongodb.client.model.Projections;
 import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
@@ -53,11 +55,23 @@ public List<Document> getCosts(String Year, String State,String Type,String Leng
     FindIterable<Document> iterable = collection.find(doc1).projection(projection);
     List<Document> users = new ArrayList<>();
     for (Document user : iterable) {
-        users.add(user);
+        users.add(user.append("year",Year).append("state",State).append("type",Type).append("length",Length).append("expense",Expense));
     }
     
+    for(int i=0;i<users.size();i++) {
+    	if(collection2.find(users.get(i)).limit(1).first()==null) {
+    		
+    		collection2.insertOne(users.get(i));
+    		
+    		
+    		
+    	}
+    }
+    
+    
 
-        collection2.insertMany(users);
+        
+        
 
 
     

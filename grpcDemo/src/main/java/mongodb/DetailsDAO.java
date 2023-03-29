@@ -59,7 +59,7 @@ MongoDatabase database = mongoClient.getDatabase("skiers_resorts");
 
     MongoCollection<Document> collection = database.getCollection("EduCoststat");
 
-    String csvFile="nces330_20.csv";
+    String csvFile="src\\main\\java\\mongodb\\nces330_20.csv";
         String line="";
         String csvDelimiter=",";
         List<String[]> data = new ArrayList<String[]>();

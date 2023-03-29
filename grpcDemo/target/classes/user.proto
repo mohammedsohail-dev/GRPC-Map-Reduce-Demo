@@ -5,12 +5,23 @@ option java_package = "com.sohail.grpc";
 service user{
 rpc login(LoginRequest) returns(APIResponse);
 rpc logout(Empty) returns (APIResponse);
+}
 
-rpc queryone(Details1) returns (Query1);
-rpc querytwo(Details2) returns (Query2);
-rpc querythree(Details3) returns (Query3);
-rpc queryfour(Details4) returns (Query4);
-rpc queryfive(Details5) returns (Query5);
+service query1{
+    rpc queryone(Details1) returns (Query1);
+}
+
+service query2{
+    rpc querytwo(Details2) returns (Query2);
+}
+service query3{
+    rpc querythree(Details3) returns (Query3);
+}
+service query4{
+    rpc queryfour(Details4) returns (Query4);
+}
+service query5{
+    rpc queryfive(Details5) returns (Query5);
 }
 
 
@@ -90,11 +101,13 @@ message Details5{
 }
 
 message Query5{
-    string region_1=1;
-    string region_2=2;
-    string region_3=3;
-    string region_4=4;
-    string region_5=5;
+
+    
+    string northeast=1;
+    string southeast=2;
+    string midwest=3;
+    string southwest=4;
+    string west=5;
 
 
 }

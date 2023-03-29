@@ -150,23 +150,65 @@ public List<String[]> getExpensivestates(String Year,String Type,String Length) 
     }
     List<String[]> Answer =sortedlist.subList(sortedlist.size()-5, sortedlist.size());
     
+    Integer flag=0;
+    for(int u=0;u<Answer.size();u++) {
+    	
+    	flag=Integer.parseInt(Answer.get(u)[1])+flag;
+    	
+    	
+    }
+    
+    if(flag==0) {
+    	
+    	Document doc = new Document().append("year",Year).append("type",Type).append("length",Length).append("state_5", "Not found").append("state_4", "Not found").append("state_3", "Not found").append("state_2", "Not found").append("state_1", "Not found"); 
+        
+        
+    	if(collection2.find(doc).limit(1).first()==null) {
+    		
+   		 collection2.insertOne(doc);
+   		
+   		
+   		
+   	}
+        
+        for(String[] array : Answer) {
+        	array[0]="Not Found";
+        }
+        
+
+
+        return Answer;
+    	
+    }
+    else {
+    
     Document doc = new Document().append("year",Year).append("type",Type).append("length",Length).append("state_5", Answer.get(0)[0]).append("state_4", Answer.get(1)[0]).append("state_3", Answer.get(2)[0]).append("state_2", Answer.get(3)[0]).append("state_1", Answer.get(4)[0]); 
     
     
-    collection2.insertOne(doc);
+    
+    	if(collection2.find(doc).limit(1).first()==null) {
+    		
+    		 collection2.insertOne(doc);
+    		
+    		
+    		
+    	}
+    }
+    
+   
     
 
 
     return Answer;
 
-    
+    }
 }
 
    
     
 
     
-}
+
 
 
    
