@@ -3,6 +3,11 @@
 2) The data from the excelsheet will be added to EduCoststat collection when the GRPC server is executed
 3) Run the GRPCClient to obtain output
 
+Main purpose of this project: 
+(1) RPC communication for resources and services; 
+(2)  data operations on MongoDB, a NoSQL database; 
+(3) implementation of aggregation pipelines for data  processing. 
+
 
 This project involves querying a dataset of information about fees in the United States of America each query is unique
     1) Completed a cost query for a specific year, state, type, length, and expense in Maven, saving the result as a document in the EduCostStatQueryOne collection.
