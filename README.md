@@ -9,7 +9,7 @@ Main purpose of this project:
 3) implementation of aggregation pipelines for data  processing. 
 
 
-This project involves querying a dataset of information about fees in the United States of America each query is unique
+This project involves querying a dataset of information about fees in the United States of America each query is unique: 
     1) Completed a cost query for a specific year, state, type, length, and expense in Maven, saving the result as a document in the EduCostStatQueryOne collection.
     2) Successfully executed a query to identify the top 5 most expensive states based on overall expense for a given year, type, and length. The results were saved as a document in the EduCostStatQueryTwo collection using Maven using gRPC Remote Procedure Call).
     3) Accomplished a query to determine the top 5 most economical states concerning overall expense given a specific year, type, and length. The outcome was stored as a document in the EduCostStatQueryThree collection, utilizing Maven using gRPC.
