@@ -5,6 +5,11 @@
 2) data operations on MongoDB, a NoSQL database; 
 3) implementation of aggregation pipelines for data  processing. 
 
+![Java](https://img.shields.io/badge/Java-11-%23ED8B00?logo=openjdk&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-5.15.0-%23FF6600?logo=rabbitmq)
+![MongoDB](https://img.shields.io/badge/MongoDB-3.12.12/4.2.0-%2347A248?logo=mongodb)
+![gRPC](https://img.shields.io/badge/gRPC-1.15.1-%230052CC?logo=grpc)
+![Maven](https://img.shields.io/badge/Maven-3.8.1-%23C71A36?logo=apachemaven)
 
 # This project involves querying a dataset of information about fees in the United States of America each query is unique: 
 1) Completed a cost query for a specific year, state, type, length, and expense in Maven, saving the result as a document in the EduCostStatQueryOne collection.
